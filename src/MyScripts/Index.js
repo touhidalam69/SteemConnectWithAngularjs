@@ -31,11 +31,10 @@ var App = angular.module('App', ['ngRoute'])
 
         $scope.logout = function () {
             sc2.revokeToken(function (err, result) {
-                alertify.success('You successfully logged out');
                 delete $rootScope.user;
                 delete $rootScope.accessToken;
                 $rootScope.$apply();
-
+                alert('You successfully logged out');
             });
         };
     }).controller("HomeController", function ($scope, $http) {
