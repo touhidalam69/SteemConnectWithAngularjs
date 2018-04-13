@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Steem Connect with Angularjs</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/main.css" rel="stylesheet">
+    <base href="/" />
+</head>
+<body ng-app="App">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top" ng-controller="IndexController">
+        <div class="container">
+            <a class="navbar-brand" href="/Home">SteemConnect Angularjs</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{loginURL}}" ng-hide="isAuth()"><i class="fa fa-key"></i>&nbsp;&nbsp;Login</a>
+                        <b ng-show="isAuth()">
+                            <a class="nav-link" href="/Profile">
+                                <img src="//img.busy.org/@{{user.name}}?s=32" width="32" height="32"> {{user.name}}
+                            </a>
+                        </b>
+                    </li>
+                    <li class="nav-item" ng-show="isAuth()">
+                        <span ng-show="isAuth()" class="nav-link" ng-click="logout()">
+                            <strong><i class="fa fa-long-arrow-up"></i>&nbsp;&nbsp;Logout</strong>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div ng-view></div>
+    </div>
+    <footer class="py-4 bg-info">
+        <div class="container">
+            <p class="m-0 text-center text-white">Demo SteemConnect and Angularjs application </p>
+        </div>
+    </footer>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+
+    <script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
+    <script src="Scripts/sc2.min.js"></script>
+    <script src="MyScripts/Index.js"></script>
+    
+    <script>
+        sc2.init({
+            app: 'steemyours',
+            callbackURL: 'http://localhost:47723',
+            scope: ['vote', 'comment']
+        });
+    </script>
+</body>
+</html>
