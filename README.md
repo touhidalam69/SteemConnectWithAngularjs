@@ -1,4 +1,4 @@
-# SteemConnectWithAngularjs
+# Basic info and Installation of SteemConnectWithAngularjs
 
 This can be used on web applications for authenticate users using steem blockchain credential.
 
